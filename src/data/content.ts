@@ -409,7 +409,7 @@ export const tyreAutoServices = [
     icon: "suspension",
     text: "Shock absorbers, struts, and steering components repaired for a stable, comfortable ride.",
   },
-];
+] as const;
 
 export const quoteServices = [
   "Tyre repair",
