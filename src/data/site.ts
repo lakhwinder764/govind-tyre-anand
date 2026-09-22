@@ -34,7 +34,7 @@ export const site = {
     instagram: "https://www.instagram.com/govindtyreandauto/",
     tiktok: "https://www.tiktok.com/@govind.tyreauto",
   },
-  logo: "https://govindtyreandauto.com.au/wp-content/uploads/2025/08/Untitled-design-2.png",
+  logo: "/logo.png",
   badges: ["Quick Turnaround", "Honest Pricing", "20+ Years of Experience"],
 } as const;
 

@@ -86,6 +86,33 @@ export const valueProps = [
   },
 ];
 
+export const quickOverview = [
+  {
+    id: "wheel-services",
+    title: "Wheel Services",
+    href: "/wheels",
+    image: stock.wheelFit,
+  },
+  {
+    id: "tyre-services",
+    title: "Tyre Services",
+    href: "/tyres",
+    image: stock.tyreStack,
+  },
+  {
+    id: "custom-solutions",
+    title: "Custom Solutions",
+    href: "/4x4-accessories",
+    image: stock.consult,
+  },
+  {
+    id: "vehicle-maintenance",
+    title: "Vehicle Maintenance",
+    href: "/mechanic",
+    image: stock.maintenance,
+  },
+];
+
 export const tyreTips = [
   {
     title: "Check Tyre Pressure Regularly",

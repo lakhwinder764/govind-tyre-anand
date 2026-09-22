@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ReviewCard } from "@/components/ReviewCard";
+import { TiltCard } from "@/components/TiltCard";
 import type { Review } from "@/data/reviews";
 
 export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
@@ -31,7 +32,9 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
       >
         {reviews.map((review) => (
           <div key={review.id} className="w-[min(86vw,360px)] shrink-0 snap-start">
-            <ReviewCard review={review} />
+            <TiltCard>
+              <ReviewCard review={review} />
+            </TiltCard>
           </div>
         ))}
       </div>

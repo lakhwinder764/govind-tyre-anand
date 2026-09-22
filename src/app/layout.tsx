@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
+import { AmbientField } from "@/components/AmbientField";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { site } from "@/data/site";
@@ -43,9 +44,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <div className="grain" aria-hidden="true" />
+        <AmbientField />
         <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <main className="relative z-10 flex-1">{children}</main>
+        <div className="relative z-10">
+          <Footer />
+        </div>
       </body>
     </html>
   );

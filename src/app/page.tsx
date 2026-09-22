@@ -5,9 +5,12 @@ import { FeatureCard } from "@/components/FeatureCard";
 import { FloatingTyre } from "@/components/FloatingTyre";
 import { Hero } from "@/components/Hero";
 import { ImageCarousel } from "@/components/ImageCarousel";
+import { OrbitStage } from "@/components/OrbitStage";
+import { QuickServiceOverview } from "@/components/QuickServiceOverview";
 import { Reveal } from "@/components/Reveal";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { SectionHeading } from "@/components/SectionHeading";
+import { StatsBar } from "@/components/StatsBar";
 import { VideoSection } from "@/components/VideoSection";
 import { galleryImages, homeServices, tyreTips, valueProps } from "@/data/content";
 import { faqs } from "@/data/faq";
@@ -22,8 +25,8 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {valueProps.map((item) => (
-            <Reveal key={item.title}>
+          {valueProps.map((item, i) => (
+            <Reveal key={item.title} delay={i * 0.08}>
               <article className="glass rounded-3xl p-6">
                 <h2 className="display text-xl font-semibold">{item.title}</h2>
                 <p className="mt-2 text-sm text-muted">{item.text}</p>
@@ -32,6 +35,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <StatsBar />
+
+      <QuickServiceOverview />
 
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <SectionHeading
@@ -53,12 +60,27 @@ export default function Home() {
         </Reveal>
       </section>
 
+      <section className="mx-auto max-w-7xl overflow-hidden px-4 py-10 sm:px-6 lg:px-8">
+        <Reveal>
+          <SectionHeading
+            eyebrow="In motion"
+            title="Tyres and wheels, in three dimensions"
+            copy="Spin the range we fit in the workshop — all-terrains, mud terrains and custom wheels ready to go on in Arndell Park."
+            className="mb-8 text-center"
+            align="center"
+          />
+        </Reveal>
+        <OrbitStage />
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {homeServices.map((service) => (
-            <Link key={service.id} href={service.href} className="block">
-              <FeatureCard title={service.title} text={service.summary} image={service.image} />
-            </Link>
+          {homeServices.map((service, i) => (
+            <Reveal key={service.id} delay={i * 0.05}>
+              <Link href={service.href} className="block">
+                <FeatureCard title={service.title} text={service.summary} image={service.image} />
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -81,20 +103,12 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-bg-elev p-8 lg:grid-cols-[1.2fr_.8fr]">
-          <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-copper">Call</p>
-            <h2 className="display mt-3 text-3xl font-semibold sm:text-5xl">
-              Call : 02 72566883 (0272566883)
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-muted">{site.hours.homepageCopy}</p>
-          </div>
-          <div className="glass rounded-3xl p-6 text-sm leading-7 text-muted">
-            <p>Client satisfaction</p>
-            <p className="mt-3">Batteries replaced</p>
-            <p className="mt-3">Tyres repaired & replaced</p>
-            <p className="mt-3">Wheel alignments & balancing done</p>
-          </div>
+        <div className="rounded-[2rem] border border-white/10 bg-bg-elev p-8 sm:p-10">
+          <p className="text-xs uppercase tracking-[0.28em] text-copper">Call</p>
+          <h2 className="display mt-3 text-3xl font-semibold sm:text-5xl">
+            Call : 02 72566883 (0272566883)
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-muted">{site.hours.homepageCopy}</p>
         </div>
       </section>
 
@@ -120,11 +134,13 @@ export default function Home() {
           <span className="rounded-full border border-white/10 px-3 py-1">Electronic Submission</span>
         </div>
         <div className="grid gap-5 md:grid-cols-2">
-          {tyreTips.map((tip) => (
-            <article key={tip.title} className="glass rounded-3xl p-6">
-              <h3 className="display text-xl font-semibold">{tip.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{tip.text}</p>
-            </article>
+          {tyreTips.map((tip, i) => (
+            <Reveal key={tip.title} delay={i * 0.06}>
+              <article className="glass rounded-3xl p-6">
+                <h3 className="display text-xl font-semibold">{tip.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted">{tip.text}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -156,11 +172,13 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionHeading title="Real Stories from Real Customers" className="mb-8" />
         <div className="grid gap-5 md:grid-cols-3">
-          {reviews.slice(4).map((review) => (
-            <article key={review.id} className="glass rounded-3xl p-6">
-              <p className="text-sm leading-7 text-muted">“{review.text}”</p>
-              <p className="mt-4 font-semibold">{review.name}</p>
-            </article>
+          {reviews.slice(4).map((review, i) => (
+            <Reveal key={review.id} delay={i * 0.08}>
+              <article className="glass rounded-3xl p-6">
+                <p className="text-sm leading-7 text-muted">“{review.text}”</p>
+                <p className="mt-4 font-semibold">{review.name}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>

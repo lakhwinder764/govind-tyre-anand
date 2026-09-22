@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { navLinks, site } from "@/data/site";
 
 export function Footer() {
@@ -6,7 +7,7 @@ export function Footer() {
     <footer className="relative mt-8 border-t border-white/10 bg-[#070605]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
-          <p className="font-display text-2xl font-semibold">{site.name}</p>
+          <Logo className="h-14 w-auto" />
           <p className="mt-4 max-w-md text-sm leading-7 text-muted">
             We are a locally trusted auto service centre dedicated to keeping your
             car in top condition. With years of experience in tyres, repairs, and

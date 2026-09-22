@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 type Slide = {
   src: string;
@@ -54,7 +54,7 @@ export function ImageCarousel({ slides, autoPlay = true }: Props) {
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}
     >
-      <div className="relative mx-auto h-[420px] max-w-5xl overflow-visible sm:h-[520px]" style={{ perspective: 1400 }}>
+      <div className="relative mx-auto h-[420px] max-w-5xl overflow-visible sm:h-[540px]" style={{ perspective: 1600 }}>
         {slides.map((slide, i) => {
           const offset = i - index;
           const wrapped =
@@ -65,14 +65,23 @@ export function ImageCarousel({ slides, autoPlay = true }: Props) {
                 : offset;
           const active = wrapped === 0;
           return (
-            <figure
+            <motion.figure
               key={slide.src}
-              className="absolute left-1/2 top-1/2 w-[78%] max-w-3xl overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl"
+              className="absolute left-1/2 top-1/2 w-[78%] max-w-3xl overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,.45)]"
+              animate={{
+                x: `${wrapped * 42}%`,
+                rotateY: wrapped * -28,
+                rotateX: active ? 0 : 8,
+                scale: active ? 1 : 0.72,
+                z: active ? 80 : -Math.abs(wrapped) * 120,
+                opacity: Math.abs(wrapped) > 2 ? 0 : active ? 1 : 0.4,
+              }}
+              transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 90, damping: 18 }}
               style={{
-                transform: `translate(-50%, -50%) translateX(${wrapped * 38}%) scale(${active ? 1 : 0.78}) rotateY(${wrapped * -18}deg)`,
-                opacity: Math.abs(wrapped) > 2 ? 0 : active ? 1 : 0.45,
+                translateX: "-50%",
+                translateY: "-50%",
                 zIndex: 20 - Math.abs(wrapped),
-                transition: reduce ? "none" : "transform 600ms cubic-bezier(0.22,1,0.36,1), opacity 600ms ease",
+                transformPerspective: 1600,
               }}
             >
               <div className="relative aspect-[16/10]">
@@ -84,7 +93,7 @@ export function ImageCarousel({ slides, autoPlay = true }: Props) {
                   sizes="(max-width: 768px) 90vw, 800px"
                 />
               </div>
-            </figure>
+            </motion.figure>
           );
         })}
       </div>

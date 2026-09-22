@@ -22,6 +22,14 @@ export const stock = {
     "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=2000&q=80",
   garage:
     "https://images.unsplash.com/photo-1632823471565-1ecdf59bc214?auto=format&fit=crop&w=2000&q=80",
+  wheelFit:
+    "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=80",
+  tyreStack:
+    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
+  consult:
+    "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+  maintenance:
+    "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80",
 } as const;
 
 export const videos = {

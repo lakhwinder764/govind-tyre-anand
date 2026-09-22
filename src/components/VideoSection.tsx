@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import { useRef, useState } from "react";
 
 type Props = {
@@ -12,6 +13,7 @@ type Props = {
 export function VideoSection({ src, poster, title, copy }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(true);
+  const reduce = useReducedMotion();
 
   function toggle() {
     const video = ref.current;
@@ -27,7 +29,15 @@ export function VideoSection({ src, poster, title, copy }: Props) {
 
   return (
     <section className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/10">
+      <motion.div
+        className="relative overflow-hidden rounded-[2rem] border border-white/10"
+        initial={reduce ? false : { opacity: 0, rotateX: 8, y: 40 }}
+        whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+        viewport={{ once: true, margin: "-10%" }}
+        whileHover={reduce ? undefined : { scale: 1.015, rotateX: 2 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        style={{ transformPerspective: 1400 }}
+      >
         <video
           ref={ref}
           className="h-[70vh] min-h-[420px] w-full object-cover"
@@ -54,7 +64,7 @@ export function VideoSection({ src, poster, title, copy }: Props) {
             {playing ? "Pause preview" : "Play preview"}
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

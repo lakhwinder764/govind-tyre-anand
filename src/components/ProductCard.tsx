@@ -6,13 +6,13 @@ import { site } from "@/data/site";
 export function ProductCard({ product }: { product: Product }) {
   return (
     <TiltCard>
-      <article className="glass overflow-hidden rounded-3xl">
+      <article className="glass group overflow-hidden rounded-3xl">
         <div className="relative aspect-square bg-white">
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-contain p-6"
+            className="object-contain p-6 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>

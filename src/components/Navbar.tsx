@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/Logo";
 import { navLinks, site } from "@/data/site";
 import { cn } from "@/lib/cn";
 
@@ -26,16 +27,9 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" onClick={() => setOpen(false)} className="group flex min-w-0 items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-2xl bg-copper text-bg font-display text-lg font-bold">
-            G
-          </span>
-          <span className="min-w-0">
-            <span className="block truncate font-display text-sm font-semibold tracking-wide sm:text-base">
-              {site.name}
-            </span>
-            <span className="hidden text-xs text-muted sm:block">Arndell Park, NSW</span>
-          </span>
+        <Link href="/" onClick={() => setOpen(false)} className="group flex min-w-0 items-center">
+          <Logo priority className="h-11 w-auto sm:h-12" />
+          <span className="sr-only">{site.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">

@@ -96,7 +96,7 @@ body {
     transform: translateY(0) rotateX(12deg) rotateY(-18deg);
   }
   50% {
-    transform: translateY(-14px) rotateX(18deg) rotateY(-8deg);
+    transform: translateY(-18px) rotateX(20deg) rotateY(-6deg);
   }
 }
 
@@ -105,7 +105,7 @@ body {
     transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate3d(2%, -3%, 0);
+    transform: translate3d(4%, -6%, 0);
   }
   100% {
     transform: translate3d(0, 0, 0);
@@ -124,13 +124,66 @@ body {
   }
 }
 
+@keyframes spin-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translate3d(0, 20px, 0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate3d(12px, -110vh, 0);
+    opacity: 0;
+  }
+}
+
 .float-3d {
-  animation: floaty 8s ease-in-out infinite;
+  animation: floaty 7s ease-in-out infinite;
   transform-style: preserve-3d;
 }
 
 .drift {
-  animation: drift 18s ease-in-out infinite;
+  animation: drift 16s ease-in-out infinite;
+}
+
+.spin-y {
+  animation: spin-y 22s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.pulse-glow {
+  animation: pulse-glow 7s ease-in-out infinite;
+}
+
+.particle {
+  animation: rise 11s linear infinite;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective {
+  perspective: 1400px;
 }
 
 .gradient-text {
@@ -149,7 +202,10 @@ body {
 
   .float-3d,
   .drift,
-  .gradient-text {
+  .gradient-text,
+  .spin-y,
+  .pulse-glow,
+  .particle {
     animation: none;
   }
 }
