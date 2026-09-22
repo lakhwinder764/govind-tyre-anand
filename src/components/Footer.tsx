@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { navLinks, site } from "@/data/site";
+import { footerLinks, site } from "@/data/site";
 
 export function Footer() {
   return (
@@ -18,7 +18,7 @@ export function Footer() {
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-faint">Visit</p>
           <ul className="mt-4 space-y-2 text-sm text-muted">
-            {navLinks.map((link) => (
+            {footerLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="hover:text-ink">
                   {link.label}

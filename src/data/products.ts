@@ -225,6 +225,12 @@ export const wheels: Product[] = [
     priceNote: "Call Us for Price",
   },
   {
+    id: "hussla-027-red",
+    name: "Hussla 027 Red 17x8.25",
+    image: wp("2025/12/Wheel_HUSSLA_027_RED1.webp"),
+    priceNote: "Call Us for Price",
+  },
+  {
     id: "hussla-030-red",
     name: "Hussla 030 Red 17x7",
     image: wp("2025/12/Wheel_HUSSLA_030_RED1_7.webp"),
@@ -292,7 +298,11 @@ export const wheels: Product[] = [
     image: wp("2025/12/48c1da91-7033-4599-8afd-07e9a5658f6e.png"),
     priceNote: "Call Us for Price",
   },
-];
+].map((wheel) => ({
+  ...wheel,
+  priceNote: wheel.priceNote ?? "Call Us for Price",
+  badge: "Installation Free",
+}));
 
 export const liftKits: Product[] = [
   {
@@ -307,30 +317,89 @@ export const liftKits: Product[] = [
     name: 'Formula 4x4 (2”/50mm) Lift Kit To Suit Mitsubishi Challenger',
     image: wp("2025/12/CHAL-0031-1.png"),
     priceNote: "Call Us for Price",
+    badge: "Installation Free",
   },
   {
     id: "formula-landcruiser",
     name: 'Formula 4x4 (2”/50mm) Big Bore Lift Kit To Suit Toyota LandCruiser',
     image: wp("2025/12/CRUS-0461.png"),
     priceNote: "Call Us for Price",
+    badge: "Installation Free",
   },
   {
     id: "bilstein-jeep",
     name: "BILSTEIN 4x4 (30MM) LIFT KIT TO SUIT JEEP WRANGLER",
     image: wp("2025/12/JEEP00711.png"),
     priceNote: "Call Us for Price",
+    badge: "Installation Free",
   },
   {
     id: "formula-f4r",
     name: 'Formula 4x4 (2”/50mm) Adjustable F4R',
     image: wp("2025/12/TOY920191.png"),
     priceNote: "Call Us for Price",
+    badge: "Installation Free",
+  },
+  {
+    id: "formula-15-40",
+    name: 'Formula 4x4 (1.5”/40mm) Lift Kit To Suit',
+    image: wp("2025/12/CRUS-0461.png"),
+    priceNote: "Call Us for Price",
+    badge: "Installation Free",
   },
   {
     id: "cal-fox",
     name: 'CAL OFFROAD (2” ) FOX LIFT KIT TOUR PACK SUITABLE',
     image: wp("2025/12/CAL50141.png"),
     priceNote: "Call Us for Price",
+    badge: "Installation Free",
+  },
+];
+
+export const wheelBrandShowcase = [
+  {
+    src: wp("2025/09/db0ce565-742b-4804-ad23-52d420663f4f.png"),
+    alt: "Performance wheel",
+  },
+  {
+    src: wp("2025/09/BLAD-BLK.png"),
+    alt: "BLAD black wheel",
+  },
+  {
+    src: wp("2025/09/81LZUqu4DmL.jpg"),
+    alt: "Alloy wheel",
+  },
+  {
+    src: wp("2025/09/61z1ttW0UEL._UF10001000_QL80_.jpg"),
+    alt: "Mesh mag wheel",
+  },
+  {
+    src: wp("2025/09/GT-FORM-MARQUEE-SATIN-BLACK-RIMS-WHEELS-PERFORMANCE-CAR-SUV-600x600-1.webp"),
+    alt: "GT Form Marquee satin black",
+  },
+  {
+    src: wp("2025/09/ARC-BLK.jpg"),
+    alt: "ARC black wheel",
+  },
+  {
+    src: wp("2025/09/BLACK-ROCK-OFF-ROAD-MILITARY-SATIN-BLACK-WHEELS-17-20-INCH-4X4-RIMS.jpg"),
+    alt: "Black Rock Military satin black",
+  },
+  {
+    src: wp("2025/09/images.jpg"),
+    alt: "Aftermarket wheel",
+  },
+  {
+    src: wp("2025/09/9303M1.webp"),
+    alt: "9303 wheel",
+  },
+  {
+    src: wp("2025/09/kmc-km730mx-hatchet-17x8-5-6-et-10-matte-black-a1-png.webp"),
+    alt: "KMC KM730MX Hatchet",
+  },
+  {
+    src: wp("2025/09/td_Brooklyn-398x398-1.jpeg"),
+    alt: "Brooklyn wheel",
   },
 ];
 

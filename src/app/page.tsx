@@ -4,6 +4,7 @@ import { FAQ } from "@/components/FAQ";
 import { FeatureCard } from "@/components/FeatureCard";
 import { FloatingTyre } from "@/components/FloatingTyre";
 import { Hero } from "@/components/Hero";
+import { HighlightCards } from "@/components/HighlightCards";
 import { ImageCarousel } from "@/components/ImageCarousel";
 import { OrbitStage } from "@/components/OrbitStage";
 import { QuickServiceOverview } from "@/components/QuickServiceOverview";
@@ -11,30 +12,22 @@ import { Reveal } from "@/components/Reveal";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StatsBar } from "@/components/StatsBar";
+import { ValuePropsBar } from "@/components/ValuePropsBar";
 import { VideoSection } from "@/components/VideoSection";
-import { galleryImages, homeServices, tyreTips, valueProps } from "@/data/content";
+import { galleryImages, homeServices, tyreTips } from "@/data/content";
 import { faqs } from "@/data/faq";
 import { videos } from "@/data/media";
-import { reviews } from "@/data/reviews";
+import { customerStories, featuredReviews } from "@/data/reviews";
 import { site } from "@/data/site";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero>
+        <ValuePropsBar />
+      </Hero>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {valueProps.map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.08}>
-              <article className="glass rounded-3xl p-6">
-                <h2 className="display text-xl font-semibold">{item.title}</h2>
-                <p className="mt-2 text-sm text-muted">{item.text}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <HighlightCards />
 
       <StatsBar />
 
@@ -119,7 +112,7 @@ export default function Home() {
           copy="Here’s why drivers trust Govind Tyre & Auto."
           className="mb-10"
         />
-        <ReviewsCarousel reviews={reviews} />
+        <ReviewsCarousel reviews={featuredReviews} />
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -172,7 +165,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <SectionHeading title="Real Stories from Real Customers" className="mb-8" />
         <div className="grid gap-5 md:grid-cols-3">
-          {reviews.slice(4).map((review, i) => (
+          {customerStories.map((review, i) => (
             <Reveal key={review.id} delay={i * 0.08}>
               <article className="glass rounded-3xl p-6">
                 <p className="text-sm leading-7 text-muted">“{review.text}”</p>

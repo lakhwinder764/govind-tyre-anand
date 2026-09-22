@@ -1,3 +1,5 @@
+import { wp } from "./media";
+
 export const site = {
   name: "Govind Tyre & Auto",
   shortName: "Govind",
@@ -38,14 +40,61 @@ export const site = {
   badges: ["Quick Turnaround", "Honest Pricing", "20+ Years of Experience"],
 } as const;
 
-export const navLinks = [
+export type NavChild = {
+  href: string;
+  label: string;
+  image?: string;
+};
+
+export type NavItem = {
+  href: string;
+  label: string;
+  children?: NavChild[];
+};
+
+export const navLinks: NavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/tyres", label: "Tyres" },
-  { href: "/wheels", label: "Wheels" },
-  { href: "/mechanic", label: "Mechanic" },
-  { href: "/4x4-accessories", label: "4×4" },
-  { href: "/car-accessories", label: "Accessories" },
+  { href: "/about", label: "About Us" },
+  {
+    href: "/tyre-auto-services",
+    label: "Services",
+    children: [
+      {
+        href: "/tyre-auto-services",
+        label: "Tyre & Auto Services",
+        image: wp("2025/10/2025-06-29.webp"),
+      },
+      {
+        href: "/tyres",
+        label: "Tyres",
+        image: wp("2025/12/e97a15ec-a8b8-4292-b712-dc2d2cf0ca6a.png"),
+      },
+      {
+        href: "/wheels",
+        label: "Wheels",
+        image: wp("2025/12/Wheel_AVID_AV-06_MATTE_BLACK2_8.webp"),
+      },
+      {
+        href: "/mechanic",
+        label: "Mechanical",
+        image: wp("2025/09/unnamed-8-1.png"),
+      },
+      {
+        href: "/car-accessories",
+        label: "Car Accessories",
+        image: wp("2025/09/hub-ring-1.jpg"),
+      },
+      {
+        href: "/4x4-accessories",
+        label: "4×4 Accessories",
+        image: wp("2025/12/coil-spring-only-lift-kit-ford-next-gen-raptor-3.png"),
+      },
+    ],
+  },
   { href: "/gallery", label: "Gallery" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-] as const;
+  { href: "/contact", label: "Contact Us" },
+];
+
+export const footerLinks = navLinks.flatMap((item) =>
+  item.children ? item.children : [{ href: item.href, label: item.label }],
+);

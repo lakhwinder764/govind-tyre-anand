@@ -5,7 +5,7 @@ import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TiltCard } from "@/components/TiltCard";
 import { stock, wp } from "@/data/media";
-import { reviews } from "@/data/reviews";
+import { featuredReviews } from "@/data/reviews";
 
 const accessories = [
   {
@@ -89,7 +89,7 @@ export default function CarAccessoriesPage() {
           copy="Real feedback from our happy customers across Sydney – here’s why drivers trust Govind Tyre & Auto."
           className="mb-8"
         />
-        <ReviewsCarousel reviews={reviews.slice(0, 4)} />
+        <ReviewsCarousel reviews={featuredReviews} />
       </section>
 
       <CTA title="Fit it properly" copy="Hub rings, spacers and hardware installed by the team who know wheels." />

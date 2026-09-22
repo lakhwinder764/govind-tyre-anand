@@ -1,7 +1,8 @@
 import { CTA } from "@/components/CTA";
-import { FeatureCard } from "@/components/FeatureCard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { ServiceOfferCard } from "@/components/ServiceOfferCard";
+import { mechanicServices } from "@/data/content";
 import { stock } from "@/data/media";
 
 export const metadata = {
@@ -68,30 +69,18 @@ export default function MechanicPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 md:grid-cols-2 lg:px-8">
-        <FeatureCard
-          title="Pink Slip / Vehicle Inspection"
-          text="Ensure your vehicle meets all safety and roadworthiness standards with our thorough Pink Slip inspections. Our certified technicians handle everything quickly and accurately. Fast and reliable inspection. Certified technicians. Compliance with all regulations."
-          image={stock.alignment}
-        />
-        <FeatureCard
-          title="Battery Replacement"
-          text="Never get stranded with a dead battery. We offer high-quality batteries and efficient installation services to keep your car running smoothly. Free battery testing. Quick replacement. Long-lasting performance."
-          image={stock.garage}
-        />
-        <FeatureCard
-          title="Air Conditioning Services"
-          text="Beat the heat with our expert air conditioning servicing. From recharge to repair, we make sure your car’s climate system works perfectly. AC recharge and repair. Leak detection. Complete system check."
-        />
-        <FeatureCard
-          title="Mechanical Repairs"
-          text="From engine troubles to suspension fixes, our experienced team handles all mechanical repairs with precision. Quality and safety are guaranteed. Engine and transmission repair. Brake and suspension maintenance. Professional diagnostic service."
-          image={stock.workshop}
-        />
-        <FeatureCard
-          title="Logbook Service"
-          text="Maintain your manufacturer’s warranty with our expert logbook servicing. We follow all service schedules and record every detail accurately. Manufacturer-compliant servicing. Genuine parts and oils. Transparent service records."
-        />
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {mechanicServices.map((service) => (
+            <ServiceOfferCard
+              key={service.title}
+              title={service.title}
+              copy={service.copy}
+              image={service.image}
+              points={service.points}
+            />
+          ))}
+        </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

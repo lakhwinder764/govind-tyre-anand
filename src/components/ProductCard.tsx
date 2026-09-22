@@ -3,7 +3,13 @@ import { TiltCard } from "@/components/TiltCard";
 import type { Product } from "@/data/products";
 import { site } from "@/data/site";
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  ctaLabel = "Enquire",
+}: {
+  product: Product;
+  ctaLabel?: string;
+}) {
   return (
     <TiltCard>
       <article className="glass group overflow-hidden rounded-3xl">
@@ -28,7 +34,7 @@ export function ProductCard({ product }: { product: Product }) {
             href={`tel:${site.phones.mobileTel}`}
             className="mt-4 inline-flex text-sm font-semibold text-copper hover:text-ink"
           >
-            Enquire
+            {ctaLabel}
           </a>
         </div>
       </article>

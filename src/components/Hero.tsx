@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
+import type { ReactNode } from "react";
 import { MagneticButton } from "@/components/MagneticButton";
 import { videos } from "@/data/media";
 import { tyres, wheels } from "@/data/products";
 import { site } from "@/data/site";
 
-export function Hero() {
+export function Hero({ children }: { children?: ReactNode }) {
   const reduce = useReducedMotion();
   const x = useSpring(useMotionValue(0), { stiffness: 40, damping: 20 });
   const y = useSpring(useMotionValue(0), { stiffness: 40, damping: 20 });
@@ -20,7 +21,7 @@ export function Hero() {
   }
 
   const cards = [
-    { src: tyres[0].image, alt: tyres[0].name, className: "right-4 top-24 hidden lg:block" },
+    { src: tyres[0].image, alt: tyres[0].name, className: "right-4 top-40 hidden lg:block" },
     { src: wheels[7].image, alt: wheels[7].name, className: "right-36 top-72 hidden lg:block" },
     { src: tyres[9].image, alt: tyres[9].name, className: "right-8 bottom-28 hidden xl:block" },
   ];
@@ -75,15 +76,17 @@ export function Hero() {
         </motion.div>
       ))}
 
+      {children}
+
       <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 lg:px-8">
         <div className="max-w-4xl">
           <motion.p
-            className="mb-4 text-xs uppercase tracking-[0.32em] text-copper"
+            className="mb-4 text-xs uppercase tracking-[0.18em] text-copper sm:tracking-[0.24em]"
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Arndell Park workshop
+            Welcome to Govind Tyre and Auto
           </motion.p>
           <h1 className="display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             {site.tagline.split(" ").map((word, i) => (
