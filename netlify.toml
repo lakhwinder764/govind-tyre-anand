@@ -1,0 +1,58 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about"
+  status = 301
+[[redirects]]
+  from = "/about-us/"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/contact-us/"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/tyre"
+  to = "/tyres"
+  status = 301
+
+[[redirects]]
+  from = "/tyre/"
+  to = "/tyres"
+  status = 301
+
+[[redirects]]
+  from = "/wheel"
+  to = "/wheels"
+  status = 301
+
+[[redirects]]
+  from = "/wheel/"
+  to = "/wheels"
+  status = 301
+
+[[redirects]]
+  from = "/wheel-category"
+  to = "/wheels"
+  status = 301
+
+[[redirects]]
+  from = "/wheel-category/"
+  to = "/wheels"
+  status = 301

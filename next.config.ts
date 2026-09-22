@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/about-us", destination: "/about", permanent: true },
+      { source: "/contact-us", destination: "/contact", permanent: true },
+      { source: "/tyre", destination: "/tyres", permanent: true },
+      { source: "/wheel", destination: "/wheels", permanent: true },
+      { source: "/wheel-category", destination: "/wheels", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
